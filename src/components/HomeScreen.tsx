@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 type HomeScreenProps = {
@@ -6,13 +8,11 @@ type HomeScreenProps = {
 
 export default function HomeScreen({ onProceed }: HomeScreenProps) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black">
-      {/* Card Container */}
+    <div className="min-h-screen flex items-center justify-center bg-black px-4">
       <div className="flex flex-col items-center w-full max-w-sm bg-white rounded-3xl shadow-lg overflow-hidden">
 
-        {/* Red Header Section */}
         <div className="bg-[#FF1A1A] w-full flex flex-col items-center py-8">
-          <div className="relative w-32 h-32">
+          <div className="relative w-32 h-32 sm:w-40 sm:h-40">
             <Image
               src="/disco.png"
               alt="Discos-Zidas Logo"
@@ -20,12 +20,12 @@ export default function HomeScreen({ onProceed }: HomeScreenProps) {
               objectFit="contain"
             />
           </div>
-          <h1 className="text-4xl font-bold text-white mt-4">Discos-Zidas</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold text-white mt-4">Discos-Zidas</h1>
         </div>
 
         {/* White Content Section */}
         <div className="flex flex-col items-center py-10 px-8">
-          <h2 className="text-2xl font-bold mb-4 text-center">Bem-vindo!</h2>
+          <h2 className="text-xl sm:text-2xl font-bold mb-4 text-center">Bem-vindo!</h2>
           <p className="text-center text-gray-700 mb-8">
             Esse é um projeto de melhores solos do rock and roll. Aproveite e
             ouça eles com calma...

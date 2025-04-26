@@ -13,7 +13,7 @@ type Solo = {
 
 type SoloPlayerProps = {
   solos: Solo[];
-  onFinished: () => void; // Função chamada quando todos os solos forem finalizados
+  onFinished: () => void;
 };
 
 export default function SoloPlayer({ solos, onFinished }: SoloPlayerProps) {
@@ -24,62 +24,64 @@ export default function SoloPlayer({ solos, onFinished }: SoloPlayerProps) {
   const imagemUrl = `http://localhost:3001/${soloAtual.imagem.replace(/\\/g, "/")}`;
   const audioUrl = `http://localhost:3001/${soloAtual.audio.replace(/\\/g, "/")}`;
 
-  // Avança para o próximo solo
   function avancarSolo() {
     if (indexAtual + 1 >= solos.length) {
-      onFinished(); // Chama a função de "acabou" quando não houver mais solos
+      onFinished();
     } else {
       setIndexAtual((prev) => prev + 1);
     }
   }
 
-  // Volta para o solo anterior (circular)
   function voltarSolo() {
     setIndexAtual((prev) => (prev - 1 + solos.length) % solos.length);
   }
 
-  // Efeito que carrega e toca o áudio do solo quando o índice mudar
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.load(); // Carrega o áudio
-      audioRef.current.play(); // Toca o áudio
+      audioRef.current.load();
+      audioRef.current.play();
     }
   }, [indexAtual]);
 
   return (
-    <div className="flex flex-col items-center space-y-6 bg-gradient-to-b p-8 shadow-xl w-full max-w-sm mx-auto">
-      <div className="relative w-full h-74 rounded-b-2xl">
-        <Image
-          src={imagemUrl}
-          alt={soloAtual.nome}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-b-2xl"
-        />
-      </div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black p-4">
+      <div className="w-full max-w-sm bg-white rounded-lg overflow-hidden shadow-lg"> 
+        
+        <div className="bg-red-600 rounded-b-3xl flex flex-col items-center justify-center p-6 h-[400px]"> 
+          <div className="relative w-[300px] h-[300px]">
+            <Image
+              src={imagemUrl}
+              alt={soloAtual.nome}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-none"
+            />
+          </div>
+        </div>
 
-      <div className="w-full bg-white py-2 px-7 text-center">
-        <h2 className="text-2xl font-bold text-center">{soloAtual.nome}</h2>
-        <p className="text-normal opacity-80 text-center mb-3">{soloAtual.banda}</p>
+        <div className="p-6 flex flex-col items-center space-y-4">
 
-        <audio ref={audioRef} controls className="w-full rounded-lg">
-          <source src={audioUrl} type="audio/mpeg" />
-          Seu navegador não suporta áudio.
-        </audio>
+        <h2 className="text-black text-2xl font-bold text-center">{soloAtual.nome}</h2>
+        <p className="text-black opacity-80 -mt-3 text-center">{soloAtual.banda}</p>
+          <audio ref={audioRef} controls className="w-full rounded-lg">
+            <source src={audioUrl} type="audio/mpeg" />
+            Seu navegador não suporta áudio.
+          </audio>
 
-        <div className="flex space-x-4 pt-4 flex justify-center items-center">
-          <button
-            onClick={voltarSolo}
-            className="px-6 py-2 bg-gray-700 text-white cursor-pointer rounded-full hover:bg-gray-800 transition duration-300"
-          >
-            Voltar
-          </button>
-          <button
-            onClick={avancarSolo}
-            className="px-6 py-2 bg-[#FF1A1A] cursor-pointer text-white rounded-full hover:bg-red-800 transition duration-300"
-          >
-            Avançar
-          </button>
+          <div className="flex space-x-4">
+            <button
+              onClick={voltarSolo}
+              className="px-6 py-2 bg-gray-700 cursor-pointer text-white rounded-full hover:bg-gray-800 transition duration-300"
+            >
+              Voltar
+            </button>
+            <button
+              onClick={avancarSolo}
+              className="px-6 py-2 bg-red-600 cursor-pointer text-white rounded-full hover:bg-red-700 transition duration-300"
+            >
+              Avançar
+            </button>
+          </div>
         </div>
       </div>
     </div>
