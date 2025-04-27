@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Discos-Zidas - Frontend 🎵
 
-## Getting Started
+Bem-vindo ao projeto **Discos-Zidas**!
 
-First, run the development server:
+Este é o frontend de uma aplicação que apresenta os melhores solos de rock and roll de forma interativa. Desenvolvido com **Next.js 14**, **Tailwind CSS** e consumo de API em **Node.js + MongoDB**.
+
+## 📈 Tecnologias Utilizadas
+
+- [Next.js 14](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- API Rest Node.js + MongoDB
+
+## ✨ Funcionalidades
+
+- Tela inicial (Home) com introdução ao projeto
+- Player de áudio com controle de avançar/voltar solos
+- Tela de agradecimento após finalizar todos os solos
+- Navegação entre telas sem recarregar a página
+
+## 🚀 Como Rodar o Projeto
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/discos-zidas-frontend.git
+```
+
+2. Acesse a pasta do projeto:
+
+```bash
+cd discos-zidas-frontend
+```
+
+3. Instale as dependências:
+
+```bash
+npm install
+```
+
+4. Rode o projeto:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Abra o navegador e acesse:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚩 Observações
 
-## Learn More
+- Certifique-se que a **API Backend** esteja rodando em `http://localhost:3001`.
+- As imagens e áudios dos solos são carregados a partir da API.
 
-To learn more about Next.js, take a look at the following resources:
+## 📅 Futuras Melhorias
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Responsividade aprimorada para tablets
+- Adicionar análise de performance com Lighthouse
+- Melhorar sistema de loading entre os solos
+- Tema escuro
+- Adicionar transições animadas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+Desenvolvido por BandeiraDev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
